@@ -24,7 +24,6 @@ import com.example.bosqueneta.ui.theme.BosquenetaTheme
 fun BosquenetaInicio() {
     BosquenetaTheme {
 
-
         Column(
             Modifier
                 .fillMaxSize()
@@ -49,7 +48,7 @@ fun BosquenetaInicio() {
                     .background(Color.Transparent), verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                botonEmpezar(TODO())
+                botonEmpezar()
             }
 
 
@@ -80,11 +79,11 @@ fun logo() {
 }
 
 @Composable
-fun botonEmpezar(onClick:Unit) {
+fun botonEmpezar() {
 
     Button(
         onClick = {
-            onClick
+            //your onclick code
         },
         border = BorderStroke(1.dp, Color.Black),
         colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.Black),
