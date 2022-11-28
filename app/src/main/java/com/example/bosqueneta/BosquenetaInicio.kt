@@ -16,12 +16,21 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.example.bosqueneta.Navigation.Destinations
 import com.example.bosqueneta.ui.theme.BosquenetaTheme
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun BosquenetaInicio() {
+fun Preview(){
+    BosquenetaInicio(rememberNavController())
+}
+
+@Composable
+fun BosquenetaInicio(navController: NavController) {
     BosquenetaTheme {
 
         Column(
@@ -48,7 +57,7 @@ fun BosquenetaInicio() {
                     .background(Color.Transparent), verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                botonEmpezar()
+                botonEmpezar(navController)
             }
 
 
@@ -73,17 +82,21 @@ fun logo() {
             contentDescription = "LOGO",
             contentScale = ContentScale.Crop,
         )
+
+
     }
 
 
 }
 
 @Composable
-fun botonEmpezar() {
+fun botonEmpezar(navController: NavController) {
 
     Button(
         onClick = {
-            //your onclick code
+                 //Navegar pantalla 2
+                  navController.navigate(Destinations.Pantalla2.ruta)
+
         },
         border = BorderStroke(1.dp, Color.Black),
         colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.Black),
